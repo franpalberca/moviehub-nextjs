@@ -5,6 +5,7 @@ import Login from '../login/login';
 type Props = {
     children: React.ReactNode
 };
+
 const AuthProvider = async ({children}: Props) => {
     const session = await getSession();
     if (!session) {

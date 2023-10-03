@@ -1,0 +1,29 @@
+.footer {
+	width: 100%;
+	height: 80px;
+	background-color: #c6dbc0;
+	display: flex;
+	align-items: center;
+	position: sticky;
+	bottom: 0;
+}
+.footer__links {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.footer__links__left {
+	display: flex;
+	align-items: center;
+	margin-left: 50vh;
+}
+.footer__copyright {
+	font-size: 30px;
+}
+
+.footer__links__right {
+	display: flex;
+	align-items: center;
+	margin-right: 50vh;
+}

@@ -4,6 +4,10 @@ import {Inter} from 'next/font/google';
 import {UserProvider} from '@auth0/nextjs-auth0/client';
 import AuthProvider from '@/components/authProvider/authProvider';
 import {Navbar} from '@/components/navbar/navbar';
+import { Footer } from '@/components/footer/footer';
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 const inter = Inter({subsets: ['latin']});
 
@@ -23,6 +27,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 					<AuthProvider>
 						<Navbar />
 						{children}
+            <Footer />
 					</AuthProvider>
 				</UserProvider>
 			</body>
