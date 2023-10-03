@@ -1,5 +1,6 @@
 import {getSession} from '@auth0/nextjs-auth0';
-import Login from "@/components/Login/Login";
+import Login from '../login/login';
+
 
 type Props = {
     children: React.ReactNode
