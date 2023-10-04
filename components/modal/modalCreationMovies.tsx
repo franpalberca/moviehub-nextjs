@@ -20,7 +20,6 @@ export const ModalCreationMovies = () => {
 		setShowModal(true);
 	};
 	const handleCloseModal = () => {
-		console.log(showModal);
 		setShowModal(false);
 	};
 

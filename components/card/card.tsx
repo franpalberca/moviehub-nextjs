@@ -1,10 +1,11 @@
+import { ModalUpdatingMovies } from '../modal/modalUpdatingMovies';
 import styles from './card.module.css'
-// import {ModalUpdatingMovies} from '../modal/ModalUpdatingMovies';
 
 export const Card = ({...props}) => {
 	const handleDeleteClick = async () => {
+        console.log(props.id)
 		try {
-			await props.onDelete();
+			await props.onDelete(props.id);
 		} catch (error) {
 			console.error('Error deleting movie:', error);
 		}
@@ -31,7 +32,7 @@ export const Card = ({...props}) => {
                     </div>
 				<div className={styles.card__footer}>
 					<button className={styles.button} onClick={handleDeleteClick}>Delete</button>
-					{/* <ModalUpdatingMovies allTitle={props.title} id={props.id} /> */}
+					<ModalUpdatingMovies allTitle={props.title} id={props.id} />
 				</div>
 			</div>
 	);

@@ -48,10 +48,6 @@
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* .modal__show {
-	display: block;
-} */
-
 .genres {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);

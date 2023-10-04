@@ -10,9 +10,8 @@ export const getAllMovies = async () => {
 
 const urlMovies = process.env.NEXT_PUBLIC_API_MOVIES;
 
-
 export const createMovie = async (urlMovies: string, movieData: FormData) => {
-		try {
+	try {
 		const response = await fetch(urlMovies, {
 			method: 'POST',
 			body: movieData,
@@ -28,7 +27,6 @@ export const createMovie = async (urlMovies: string, movieData: FormData) => {
 		throw error;
 	}
 };
-
 
 export const updateMovie = async (movieId, formData) => {
 	try {
@@ -51,9 +49,9 @@ export const updateMovie = async (movieId, formData) => {
 	}
 };
 
-export const deleteMovie = async (movieId) => {
+export const deleteMovie = async (movieId: string) => {
 	try {
-		const response = await fetch(`/api/movies/${movieId}`, {
+		const response = await fetch(`http://localhost:8080/movies/${movieId}`, {
 			method: 'DELETE',
 		});
 

@@ -4,6 +4,7 @@ import {Card} from '@/components/card/card';
 import {deleteMovie, getAllMovies, updateMovie} from '@/services/movies.services';
 import {useUser} from '@auth0/nextjs-auth0/client';
 import styles from './private.module.css';
+import { Movies } from '@/types/movies';
 
 const Private = () => {
 	const urlMovies = process.env.VITE_API_MOVIES;
@@ -23,7 +24,7 @@ const Private = () => {
 		fetchDataMovies();
 	}, []);
 
-	const handleUpdateMovie = async (movieId) => {
+	const handleUpdateMovie = async (movieId: string) => {
 		const movieUrl = `${urlMovies}`;
 		try {
 			await updateMovie(movieUrl, movieId);
@@ -33,10 +34,11 @@ const Private = () => {
 		}
 	};
 
-	const handleDeleteMovie = async (movieId: any) => {
-		const movieUrl = `${urlMovies}`;
+	const handleDeleteMovie = async (movieId: string) => {
+		console.log(movieId)
+		// const movieUrl = `${urlMovies}`;
 		try {
-			await deleteMovie(movieUrl, movieId);
+			await deleteMovie(movieId);
 			setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== movieId));
 		} catch (error) {
 			console.error('Error deleting movie:', error);
@@ -50,7 +52,7 @@ const Private = () => {
 		<>
 			<h1 className={styles.title}>My Movies</h1>
 			<div className={styles.movie__grid}>
-				{movies.map((movie) => (
+				{movies.map((movie: Movies) => (
 					<Card
 						key={movie.id}
 						id={movie.id}
