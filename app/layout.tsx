@@ -8,6 +8,7 @@ import { Footer } from '@/components/footer/footer';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 config.autoAddCss = false
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const inter = Inter({subsets: ['latin']});
 
@@ -24,11 +25,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 		<html lang="en">
 			<body className={inter.className}>
 				<UserProvider>
-					<AuthProvider>
+					
 						<Navbar />
 						{children}
-            <Footer />
-					</AuthProvider>
+						<AuthProvider />
+            			<Footer />
+					{/* </AuthProvider> */}
 				</UserProvider>
 			</body>
 		</html>

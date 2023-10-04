@@ -1,0 +1,47 @@
+.user__info {
+	display: grid;
+	grid-template-columns: 130vh auto;
+}
+.card__profile {
+	border: 1px solid black;
+	border-radius: 25px;
+	width: 70vh;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	left: 55%;
+	top: 15px;
+}
+
+.title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.picture {
+	width: 60%;
+	position: relative;
+	left: 13%;
+    border-radius: 20px;
+}
+
+.card__profile__info {
+	border: 1px solid black;
+	border-radius: 25px;
+	width: 90vh;
+	height: 50vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	top: 70px;
+	right: 20vh;
+}
+.email {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	top: 10vh;
+}
