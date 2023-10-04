@@ -5,6 +5,7 @@ import {deleteMovie, getAllMovies, updateMovie} from '@/services/movies.services
 import {useUser} from '@auth0/nextjs-auth0/client';
 import styles from './private.module.css';
 import { Movies } from '@/types/movies';
+import { useRouter } from 'next/navigation';
 
 const Private = () => {
 	const urlMovies = process.env.VITE_API_MOVIES;

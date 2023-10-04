@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import { ModalUpdatingMovies } from '../modal/modalUpdatingMovies';
 import styles from './card.module.css'
 
@@ -10,9 +11,13 @@ export const Card = ({...props}) => {
 			console.error('Error deleting movie:', error);
 		}
 	};
+    const router = useRouter()
+    const handleMovieClick = () => {
+        router.push(`/private/movie/${props.id}`);
+    };
 
 	return (
-			<div className={styles.card}>
+			<div className={styles.card} onClick={handleMovieClick}>
 				<div className={styles.card__header}>
 					<img className={styles.card__header__img} src={props.imageUrl} alt={props.title} />
 				</div>

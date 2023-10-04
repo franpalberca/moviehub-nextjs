@@ -8,7 +8,6 @@ export const getAllMovies = async () => {
 	return results as Movies[];
 };
 
-const urlMovies = process.env.NEXT_PUBLIC_API_MOVIES;
 
 export const createMovie = async (urlMovies: string, movieData: FormData) => {
 	try {
@@ -27,6 +26,11 @@ export const createMovie = async (urlMovies: string, movieData: FormData) => {
 		throw error;
 	}
 };
+
+export const getMovieDetails = async (id: string) => {
+    const response = await fetch(`http:localhost:8080/movie/${id}`)
+    return await response.json() as Movies
+}
 
 export const updateMovie = async (movieId, formData) => {
 	try {
