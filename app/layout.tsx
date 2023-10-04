@@ -4,11 +4,11 @@ import {Inter} from 'next/font/google';
 import {UserProvider} from '@auth0/nextjs-auth0/client';
 import AuthProvider from '@/components/authProvider/authProvider';
 import {Navbar} from '@/components/navbar/navbar';
-import { Footer } from '@/components/footer/footer';
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-config.autoAddCss = false
-import "bootstrap/dist/css/bootstrap.min.css";
+import {Footer} from '@/components/footer/footer';
+import {config} from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { ModalCreationMovies } from '@/components/modal/modalCreationMovies';
+config.autoAddCss = false;
 
 const inter = Inter({subsets: ['latin']});
 
@@ -25,12 +25,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 		<html lang="en">
 			<body className={inter.className}>
 				<UserProvider>
-					
-						<Navbar />
-						{children}
-						<AuthProvider />
-            			<Footer />
-					{/* </AuthProvider> */}
+					<Navbar />
+					<ModalCreationMovies />
+					{children}
+					<AuthProvider />
+					<Footer />
 				</UserProvider>
 			</body>
 		</html>

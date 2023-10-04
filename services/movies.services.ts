@@ -5,9 +5,30 @@ const API_MOVIES = process.env.NEXT_PUBLIC_API_MOVIES;
 export const getAllMovies = async () => {
 	const response = await fetch(`${API_MOVIES}`);
 	const results = await response.json();
-    console.log(results);
 	return results as Movies[];
 };
+
+const urlMovies = process.env.NEXT_PUBLIC_API_MOVIES;
+
+
+export const createMovie = async (urlMovies: string, movieData: FormData) => {
+		try {
+		const response = await fetch(urlMovies, {
+			method: 'POST',
+			body: movieData,
+		});
+
+		if (response.ok) {
+			return response.json();
+		} else {
+			throw new Error('No response at server');
+		}
+	} catch (error) {
+		console.error(error);
+		throw error;
+	}
+};
+
 
 export const updateMovie = async (movieId, formData) => {
 	try {

@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import {Card} from '@/components/card/card';
 import {deleteMovie, getAllMovies, updateMovie} from '@/services/movies.services';
 import {useUser} from '@auth0/nextjs-auth0/client';
+import styles from './private.module.css';
 
 const Private = () => {
 	const urlMovies = process.env.VITE_API_MOVIES;
@@ -16,7 +17,6 @@ const Private = () => {
 	useEffect(() => {
 		async function fetchDataMovies() {
 			const moviesData = await getAllMovies();
-			console.log(moviesData);
 			setMovies(moviesData.movies);
 		}
 
@@ -33,7 +33,7 @@ const Private = () => {
 		}
 	};
 
-	const handleDeleteMovie = async (movieId) => {
+	const handleDeleteMovie = async (movieId: any) => {
 		const movieUrl = `${urlMovies}`;
 		try {
 			await deleteMovie(movieUrl, movieId);
@@ -48,8 +48,8 @@ const Private = () => {
 	}, [movies]);
 	return (
 		<>
-			<h1 className="title">My Movies</h1>
-			<div className="movie-grid">
+			<h1 className={styles.title}>My Movies</h1>
+			<div className={styles.movie__grid}>
 				{movies.map((movie) => (
 					<Card
 						key={movie.id}

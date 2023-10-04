@@ -4,7 +4,7 @@
 	align-items: center;
 	justify-content: flex-start;
 	width: 300px;
-	max-height: 650px;
+	max-height: 850px;
 	border-radius: 35px;
 	border: 1px solid rgba(0, 0, 0, 0.8);
 	background: rgba(250, 250, 250, 0.8);
@@ -12,7 +12,7 @@
 	margin-bottom: 4rem;
 }
 .card__header__img {
-	width: 40vh;
+	width: 30vh;
 	border-radius: 20px;
 	position: relative;
 	top: 12px;
@@ -21,9 +21,50 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	top: 15px;
+	top: 0px;
 }
 .card__main__titleMovie {
 	position: relative;
 	top: 7px;
+}
+
+.button {
+	padding: 0px 10px;
+	height: 42px;
+	border-radius: 6px;
+	background-color: rgb(247, 214, 51);
+	font-family: FigtreeSB, sans-serif;
+	cursor: pointer;
+	min-width: 80px;
+	overflow: hidden;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	font-size: 25px;
+	font-weight: 500;
+	margin: 8px;
+	flex: 1 1 0%;
+}
+.button:hover {
+	cursor: pointer;
+}
+
+.card__main__titleMovie,
+.card__main__country,
+.card__main__year,
+.card__main__scoreMovie,
+.card__main__div {
+	position: relative;
+	padding: 0;
+	margin: 10px;
+	left: 0;
+}
+
+.card__main__div__genreMovie{
+    position: relative;
+	padding: 0;
+	margin: 0;
+	left: 0;
 }

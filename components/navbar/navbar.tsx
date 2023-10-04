@@ -21,6 +21,15 @@ export const Navbar = () => {
 	};
 
 	useEffect(() => {
+		if (user) {
+			userID()
+				.then((data) => {
+					console.log(data);
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		}
 		const fetchData = async () => {
 			const data = await userID();
 			console.log(data);
@@ -46,7 +55,6 @@ export const Navbar = () => {
 				<div className={styles.navbar__links__right}>
 					{user ? (
 						<>
-							{/* <ModalCreationMovies getToken={() => getAccessTokenSilently()} /> */}
 							<div className={styles.navbar__divButtonProfile}>
 								<Link href="/private/profile" className={styles.profile__link}>
 									Profile
