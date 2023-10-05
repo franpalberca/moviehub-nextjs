@@ -8,7 +8,6 @@ export const getAllMovies = async () => {
 	return results as Movies[];
 };
 
-
 export const createMovie = async (urlMovies: string, movieData: FormData) => {
 	try {
 		const response = await fetch(urlMovies, {
@@ -27,10 +26,11 @@ export const createMovie = async (urlMovies: string, movieData: FormData) => {
 	}
 };
 
-export const getMovieDetails = async (id: string) => {
-    const response = await fetch(`http:localhost:8080/movie/${id}`)
-    return await response.json() as Movies
-}
+export const getMovieDetails = async (movieId: string) => {
+	const response = await fetch(`http:localhost:8080/movie/${movieId}/`);
+	const results = await response.json();
+	return results as Movies;
+};
 
 export const updateMovie = async (movieId, formData) => {
 	try {

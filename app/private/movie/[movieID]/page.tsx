@@ -1,32 +1,35 @@
-import { getMovieDetails } from '@/services/movies.services'
-import styles from './movie.module.css'
-import { Metadata } from "next"
-import { Movies } from '@/types/movies'
+import {getMovieDetails} from '@/services/movies.services';
+import styles from './movie.module.css';
+import {Metadata} from 'next';
+import {Movies} from '@/types/movies';
 
 type Props = {
-  params: {
-    id: string
-  }
+	params: {
+		movieID: string;
+	};
+};
+
+export async function generateMetadata(props: Props): Promise<Metadata> {
+	const {params} = props;
+	const movieInfo = await getMovieDetails(params.movieID);
+	return {
+		title: `${movieInfo.title} Page`,
+		description: movieInfo.title,
+	};
 }
 
-export async function generateMetadata({params}: Props): Promise<Metadata> {
-  const movie = await getMovieDetails(params.id)
-    return {
-        title: `${movie.title} Page`,
-        description: movie.title
-    }
-}
+const Movie = async (props: Props) => {
+	const {params} = props;
+	const movieInfo: Movies = await getMovieDetails(params.movieID);
 
-const Movie = async ({params}: Props) => {
-  const movie: Movies = await getMovieDetails(params.id)
-  return (
-    <div className={styles.information}>
-        <img src={movie.imageUrl} alt={movie.title}/>
-        <h1>Name: {movie.title}</h1>
-        <h2>Year: {movie.year}</h2>
-        <h2>Country: {movie.country}</h2>
-    </div>
-  )
-}
+	return (
+		<div className={styles.information}>
+			<img src={movieInfo.imageUrl} alt={movieInfo.title} />
+			<h1>Name: {movieInfo.title}</h1>
+			<h2>Year: {movieInfo.year}</h2>
+			<h2>Country: {movieInfo.country}</h2>
+		</div>
+	);
+};
 
-export default Movie
+export default Movie;
