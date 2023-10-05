@@ -28,6 +28,7 @@ const Movie = async (props: Props) => {
 			<h1>Name: {movieInfo.title}</h1>
 			<h2>Year: {movieInfo.year}</h2>
 			<h2>Country: {movieInfo.country}</h2>
+			<p>Description: {movieInfo.description}</p>
 		</div>
 	);
 };

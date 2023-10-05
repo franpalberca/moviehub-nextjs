@@ -7,6 +7,7 @@ export interface Movies {
 	year: number;
 	country: string;
 	score: number;
+	description: string;
 	genres: Genres[];
 	genresArray: string[];
 	createdAt: Date;

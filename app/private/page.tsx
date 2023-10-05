@@ -1,29 +1,34 @@
 'use client';
+import './globals.css';
 import {useEffect, useState} from 'react';
 import {Card} from '@/components/card/card';
 import {deleteMovie, getAllMovies, updateMovie} from '@/services/movies.services';
 import {useUser} from '@auth0/nextjs-auth0/client';
 import styles from './private.module.css';
-import { Movies } from '@/types/movies';
-import { useRouter } from 'next/navigation';
+import {Movies} from '@/types/movies';
 
 const Private = () => {
 	const urlMovies = process.env.VITE_API_MOVIES;
-	const [movies, setMovies] = useState([]);
+	const [movies, setMovies] = useState<Movies[]>([]);
 	let url = '';
 	const {user} = useUser();
 	if (user) {
-		url = `${urlMovies}/${user.id}`;
+		url = `${urlMovies}/${user.email}`;
 	}
 
 	useEffect(() => {
-		async function fetchDataMovies() {
-			const moviesData = await getAllMovies();
-			setMovies(moviesData.movies);
+		if (user) {
+			const fetchDataMovies = async () => {
+				try {
+					const moviesData = await getAllMovies(user.email);
+					setMovies(moviesData.movies);
+				} catch (error) {
+					console.error('Error fetching movies:', error);
+				}
+			};
+			fetchDataMovies();
 		}
-
-		fetchDataMovies();
-	}, []);
+	}, [user]);
 
 	const handleUpdateMovie = async (movieId: string) => {
 		const movieUrl = `${urlMovies}`;
@@ -36,7 +41,7 @@ const Private = () => {
 	};
 
 	const handleDeleteMovie = async (movieId: string) => {
-		console.log(movieId)
+		console.log(movieId);
 		// const movieUrl = `${urlMovies}`;
 		try {
 			await deleteMovie(movieId);
@@ -62,6 +67,7 @@ const Private = () => {
 						country={movie.country}
 						year={movie.year}
 						score={movie.score}
+						description={movie.description}
 						genresArray={movie.genresArray}
 						onDelete={() => handleDeleteMovie(movie.id)}
 						onModify={() => handleUpdateMovie(movie.id)}

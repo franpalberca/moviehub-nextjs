@@ -38,7 +38,7 @@ export const Card = ({...props}) => {
 				<button className={styles.button} onClick={handleDeleteClick}>
 					Delete
 				</button>
-				<ModalUpdatingMovies allTitle={props.title} id={props.id} />
+				<ModalUpdatingMovies {...props}/>
 			</div>
 		</div>
 	);

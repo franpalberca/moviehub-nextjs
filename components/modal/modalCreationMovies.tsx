@@ -4,6 +4,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar} from '@fortawesome/free-solid-svg-icons';
 import styles from './modalCreationMovies.module.css';
 import {createMovie} from '@/services/movies.services';
+import {useUser} from '@auth0/nextjs-auth0/client'
+import { useRouter } from 'next/navigation';
 
 const urlMovies = process.env.NEXT_PUBLIC_API_MOVIES;
 
@@ -15,7 +17,11 @@ export const ModalCreationMovies = () => {
 	const [score, setScore] = useState<number>(0);
 	const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 	const [selectedFile, setSelectedFile] = useState<File | null>(null);
+	const [descriptionMovie, setDescriptionMovie] = useState('');
 
+	const {user} = useUser()
+	const router = useRouter()
+	
 	const handleShowModal = () => {
 		setShowModal(true);
 	};
@@ -47,10 +53,9 @@ export const ModalCreationMovies = () => {
 				movieData.append('image', selectedFile);
 			}
 
-			const response = await createMovie(`${urlMovies}`, movieData);
-
+			const response = await createMovie(`${urlMovies}/${user?.email}`, movieData);
+			router.refresh()
 			console.log('Movie created successfully', response);
-
 			setTitle('');
 			setYear('');
 			setCountry('');
@@ -124,6 +129,10 @@ export const ModalCreationMovies = () => {
 									</div>
 								))}
 							</div>
+							<div>
+									<label>Description</label>
+									<textarea onChange={(e) => setDescriptionMovie(e.target.value)} />
+								</div>
 							<div>
 								<label>Upload Image:</label>
 								<input type="file" accept="image/*" onChange={handleFileChange} />
