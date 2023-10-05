@@ -2,6 +2,7 @@ import {getMovieDetails} from '@/services/movies.services';
 import styles from './movie.module.css';
 import {Metadata} from 'next';
 import {Movies} from '@/types/movies';
+import Button from '@/components/button/button';
 
 type Props = {
 	params: {
@@ -22,14 +23,20 @@ const Movie = async (props: Props) => {
 	const {params} = props;
 	const movieInfo: Movies = await getMovieDetails(params.movieID);
 
+
 	return (
-		<div className={styles.information}>
-			<img src={movieInfo.imageUrl} alt={movieInfo.title} />
-			<h1>Name: {movieInfo.title}</h1>
-			<h2>Year: {movieInfo.year}</h2>
-			<h2>Country: {movieInfo.country}</h2>
-			<p>Description: {movieInfo.description}</p>
+		<>
+		<Button />
+		<div className={styles.box}>
+			<img className={styles.image} src={movieInfo.imageUrl} alt={movieInfo.title} />
+			<div className={styles.info}>
+			<h1 className={styles.name}>Name: {movieInfo.title}</h1>
+			<h2 className={styles.year}>Year: {movieInfo.year}</h2>
+			<h2 className={styles.country}>Country: {movieInfo.country}</h2>
+			<p className={styles.description}>Description: {movieInfo.description}</p>
+			</div>
 		</div>
+		</>
 	);
 };
 

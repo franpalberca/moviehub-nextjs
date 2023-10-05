@@ -1,3 +1,4 @@
+'use server';
 import {Movies} from '@/types/movies';
 
 const API_MOVIES = process.env.NEXT_PUBLIC_API_MOVIES;
@@ -19,7 +20,7 @@ export const createMovie = async (urlMovies: string, movieData: FormData) => {
 		if (response.ok) {
 			return response.json();
 		} else {
-			throw new Error('No response at server');
+			// throw new Error('No response at server');
 		}
 	} catch (error) {
 		console.error(error);

@@ -51,7 +51,7 @@ export const Navbar = () => {
 		<div className={styles.navbar}>
 			<div className={styles.navbar__links}>
 				<div className={styles.navbar__links__left}>{user ? <Link href="/private">MOVIE'S TIME</Link> : <Link href="/">MOVIE'S TIME</Link>}</div>
-				{user ? <h3 className={styles.navbar__links__right__welcome}>Welcome {user?.name}</h3> : <h3 className="styles.navbar__links-right__welcome">Please log in</h3>}
+				{user ? <h3 className={styles.navbar__links__right__welcome}>Welcome {user?.name}</h3> : <h3 className={styles.navbar__links__right__welcome}>Please log in</h3>}
 				<div className={styles.navbar__links__right}>
 					{user ? (
 						<>

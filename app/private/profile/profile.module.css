@@ -1,17 +1,19 @@
 .user__info {
 	display: grid;
 	grid-template-columns: 130vh auto;
+	width: 210px;
 }
 .card__profile {
 	border: 1px solid black;
 	border-radius: 25px;
 	width: 70vh;
-	height: 70vh;
+	height: 65vh;
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	left: 55%;
+	left: 70vh;
 	top: 15px;
+	margin-bottom: 90px;
 }
 
 .title {
@@ -21,10 +23,11 @@
 }
 
 .picture {
-	width: 60%;
+	width: 250px;
 	position: relative;
-	left: 13%;
+	left: 30%;
     border-radius: 20px;
+	margin-top: 20px;
 }
 
 .card__profile__info {

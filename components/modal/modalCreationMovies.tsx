@@ -54,7 +54,6 @@ export const ModalCreationMovies = () => {
 			}
 
 			const response = await createMovie(`${urlMovies}/${user?.email}`, movieData);
-			router.refresh()
 			console.log('Movie created successfully', response);
 			setTitle('');
 			setYear('');

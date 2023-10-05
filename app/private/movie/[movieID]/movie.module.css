@@ -1,0 +1,34 @@
+.box{
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 210vh;
+    height: 75vh;
+    display:grid;
+    grid-template-columns: 90vh auto;
+    margin-bottom: 15px;
+    margin-left: 100px;
+    margin-top: 30px;
+}
+
+.image{
+    width: 250px;
+    height: 370px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    left: 300px;
+    border-radius: 20px;
+    padding: 10px;
+    padding-top: 100px;
+}
+
+.info {
+    grid-column: 2/3;
+    padding-top: 100px;;
+}
+
+.description {
+    width: 600px;
+}
+
