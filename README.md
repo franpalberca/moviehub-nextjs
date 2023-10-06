@@ -1,7 +1,7 @@
 # MovieHub 🎬
 
 
-Welcome to the MovieHub project, an application to keep track of the movies you are watching. This project is designed to help you learn and practice your backend development skills. Throughout the project, you will be adding functionalities and refactoring your code as you learn new concepts.
+Welcome to the MovieHub project, an application to keep track of the movies you are watching. This project is designed to help you learn and practice your front and backend development skills through CRUD. Throughout the project, you will be adding functionalities and refactoring your code as you learn new concepts.
 
 
 ![General Page](/public/assets/1.png)
